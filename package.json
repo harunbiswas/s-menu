@@ -1,0 +1,13 @@
+{
+  "name": "menu",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Harun Biswas Rubel <harunbiswasrubel@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node-sass ./assets/sass/main.scss style.css -w"
+  },
+  "dependencies": {
+    "node-sass": "^9.0.0"
+  }
+}
