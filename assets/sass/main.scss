@@ -59,19 +59,68 @@ ul {
     display: flex;
     align-items: center;
     gap: 50px;
+
+    @media screen and (max-width: 768px) {
+      justify-content: space-between;
+    }
+  }
+
+  .toggle {
+    display: none;
+
+    @media screen and (max-width: 768px) {
+      display: block;
+
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        background-color: transparent;
+        border: none;
+        color: $theme;
+        cursor: pointer;
+      }
+    }
   }
 
   .nav {
+    @media screen and (max-width: 768px) {
+      position: fixed;
+      top: 92px;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(
+        51deg,
+        rgba(212, 217, 225, 1) 0%,
+        rgba(244, 246, 249, 1) 100%
+      );
+      height: 100vh;
+      transform: translateX(100%);
+      transition: 0.6s;
+
+      &.show {
+        transform: translateX(0);
+      }
+    }
+
     &-menu {
       display: flex;
       align-items: center;
       gap: 40px;
 
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0px;
+        padding: 0 20px;
+      }
+
       &-item {
         .dropdown {
           position: absolute;
           left: 0;
-          bottom: 100%;
+          bottom: 1000%;
           transition: 0.5s;
           width: 100%;
           height: calc(100vh - 97px);
@@ -83,7 +132,19 @@ ul {
             bottom: unset;
             top: 100%;
           }
+          @media screen and (max-width: 768px) {
+            position: fixed;
+            flex-direction: column;
+            overflow-y: auto;
+            bottom: unset;
+            top: 0;
+            transform: translateX(100%);
 
+            &.show {
+              transform: translateX(0);
+              top: 0;
+            }
+          }
           &-left {
             width: 34%;
             z-index: 99;
@@ -100,10 +161,18 @@ ul {
               width: 100%;
             }
 
+            @media screen and (max-width: 768px) {
+              width: 100%;
+            }
+
             &-wrp {
               position: relative;
               width: 100%;
               z-index: -1;
+
+              @media screen and (max-width: 768px) {
+                z-index: 99;
+              }
             }
 
             & > h3 {
@@ -117,6 +186,36 @@ ul {
               display: grid;
               grid-template-columns: auto auto auto;
               gap: 50px;
+
+              @media screen and (max-width: 500px) {
+                grid-template-columns: auto;
+              }
+            }
+
+            .inner-close,
+            .close-dr {
+              display: none;
+
+              @media screen and (max-width: 1024px) {
+                display: block;
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                z-index: 999;
+
+                & > button {
+                  border: none;
+                  background-color: $theme;
+                  display: flex;
+                  width: 20px;
+                  height: 20px;
+                  color: $white;
+                  border-radius: 50%;
+                  align-items: center;
+                  justify-content: center;
+                  cursor: pointer;
+                }
+              }
             }
 
             &-menu {
@@ -274,8 +373,29 @@ ul {
                     }
                   }
 
+                  &.sol {
+                    background: linear-gradient(
+                      51deg,
+                      rgba(212, 217, 225, 1) 0%,
+                      rgba(244, 246, 249, 1) 100%
+                    );
+                  }
+
                   &.show {
                     transform: translateX(0);
+                  }
+
+                  @media screen and (max-width: 768px) {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    z-index: 9999 !important;
+                    height: 100%;
+
+                    &.show {
+                      transform: translateX(0);
+                    }
                   }
                 }
               }
@@ -289,6 +409,10 @@ ul {
               rgba(212, 217, 225, 1) 0%,
               rgba(244, 246, 249, 1) 100%
             );
+
+            @media screen and (max-width: 768px) {
+              width: 100%;
+            }
 
             &-top {
               display: flex;
@@ -325,6 +449,10 @@ ul {
                     font-size: 14px;
                     font-weight: 800;
                     color: $dark;
+                  }
+
+                  @media screen and (max-width: 768px) {
+                    display: none;
                   }
                 }
               }

@@ -35,14 +35,49 @@ ul {
     display: flex;
     align-items: center;
     gap: 50px; }
+    @media screen and (max-width: 768px) {
+      .header .container {
+        justify-content: space-between; } }
+  .header .toggle {
+    display: none; }
+    @media screen and (max-width: 768px) {
+      .header .toggle {
+        display: block; }
+        .header .toggle button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 22px;
+          background-color: transparent;
+          border: none;
+          color: #4bcd3e;
+          cursor: pointer; } }
+  @media screen and (max-width: 768px) {
+    .header .nav {
+      position: fixed;
+      top: 92px;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(51deg, #d4d9e1 0%, #f4f6f9 100%);
+      height: 100vh;
+      transform: translateX(100%);
+      transition: 0.6s; }
+      .header .nav.show {
+        transform: translateX(0); } }
   .header .nav-menu {
     display: flex;
     align-items: center;
     gap: 40px; }
+    @media screen and (max-width: 768px) {
+      .header .nav-menu {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0px;
+        padding: 0 20px; } }
     .header .nav-menu-item .dropdown {
       position: absolute;
       left: 0;
-      bottom: 100%;
+      bottom: 1000%;
       transition: 0.5s;
       width: 100%;
       height: calc(100vh - 97px);
@@ -52,6 +87,17 @@ ul {
       .header .nav-menu-item .dropdown.show {
         bottom: unset;
         top: 100%; }
+      @media screen and (max-width: 768px) {
+        .header .nav-menu-item .dropdown {
+          position: fixed;
+          flex-direction: column;
+          overflow-y: auto;
+          bottom: unset;
+          top: 0;
+          transform: translateX(100%); }
+          .header .nav-menu-item .dropdown.show {
+            transform: translateX(0);
+            top: 0; } }
       .header .nav-menu-item .dropdown-left {
         width: 34%;
         z-index: 99;
@@ -60,10 +106,16 @@ ul {
         padding: 40px; }
         .header .nav-menu-item .dropdown-left.full {
           width: 100%; }
+        @media screen and (max-width: 768px) {
+          .header .nav-menu-item .dropdown-left {
+            width: 100%; } }
         .header .nav-menu-item .dropdown-left-wrp {
           position: relative;
           width: 100%;
           z-index: -1; }
+          @media screen and (max-width: 768px) {
+            .header .nav-menu-item .dropdown-left-wrp {
+              z-index: 99; } }
         .header .nav-menu-item .dropdown-left > h3 {
           text-transform: uppercase;
           font-size: 20px;
@@ -73,6 +125,32 @@ ul {
           display: grid;
           grid-template-columns: auto auto auto;
           gap: 50px; }
+          @media screen and (max-width: 500px) {
+            .header .nav-menu-item .dropdown-left-inner {
+              grid-template-columns: auto; } }
+        .header .nav-menu-item .dropdown-left .inner-close,
+        .header .nav-menu-item .dropdown-left .close-dr {
+          display: none; }
+          @media screen and (max-width: 1024px) {
+            .header .nav-menu-item .dropdown-left .inner-close,
+            .header .nav-menu-item .dropdown-left .close-dr {
+              display: block;
+              position: absolute;
+              top: 10px;
+              left: 10px;
+              z-index: 999; }
+              .header .nav-menu-item .dropdown-left .inner-close > button,
+              .header .nav-menu-item .dropdown-left .close-dr > button {
+                border: none;
+                background-color: #4bcd3e;
+                display: flex;
+                width: 20px;
+                height: 20px;
+                color: #fff;
+                border-radius: 50%;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer; } }
         .header .nav-menu-item .dropdown-left-menu {
           display: flex;
           flex-direction: column;
@@ -170,12 +248,27 @@ ul {
                 background: url(https://www.fisglobal.com//-/media/fisglobal/images/Main/Pages/Homepage/nav-img-securities-and-investments.jpg); }
                 .header .nav-menu-item .dropdown-left-menu-item-body.body-2 > .inner {
                   width: 66%; }
+              .header .nav-menu-item .dropdown-left-menu-item-body.sol {
+                background: linear-gradient(51deg, #d4d9e1 0%, #f4f6f9 100%); }
               .header .nav-menu-item .dropdown-left-menu-item-body.show {
                 transform: translateX(0); }
+              @media screen and (max-width: 768px) {
+                .header .nav-menu-item .dropdown-left-menu-item-body {
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  z-index: 9999 !important;
+                  height: 100%; }
+                  .header .nav-menu-item .dropdown-left-menu-item-body.show {
+                    transform: translateX(0); } }
       .header .nav-menu-item .dropdown-right {
         width: 40%;
         padding: 30px;
         background: linear-gradient(51deg, #d4d9e1 0%, #f4f6f9 100%); }
+        @media screen and (max-width: 768px) {
+          .header .nav-menu-item .dropdown-right {
+            width: 100%; } }
         .header .nav-menu-item .dropdown-right-top {
           display: flex;
           align-items: flex-start;
@@ -204,6 +297,9 @@ ul {
               font-size: 14px;
               font-weight: 800;
               color: #000; }
+            @media screen and (max-width: 768px) {
+              .header .nav-menu-item .dropdown-right-top > .right button {
+                display: none; } }
         .header .nav-menu-item .dropdown-right-body {
           display: flex;
           flex-direction: column; }
